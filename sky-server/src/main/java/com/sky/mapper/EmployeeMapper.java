@@ -36,4 +36,15 @@ public interface EmployeeMapper {
      */
     //动态sql，不用注解。映射文件
     Page<Employee> pageQuery(EmployeePageQueryDTO employeePageQueryDTO);
+
+    //动态sql，不用注解，在xml文件中写aql
+    void update(Employee employee);
+
+    /**
+     * 根据id查询员工信息
+     * @param id
+     * @return
+     */
+    @Select("select * from employee where id = #{id}")
+    Employee getById(Long id);
 }
